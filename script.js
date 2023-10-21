@@ -80,7 +80,9 @@ for (let i = 1; i <= 5; i++) {
   // calling on the round function to play a round
   // ! removed clg for round, it logged a 0 or a 1, don't know why
   round(computerChoice, playerChoice);
-  console.log(`Player score is ${playerScore}, computer score is ${computerScore}.`);
+  console.log(
+    `Player score is ${playerScore}, computer score is ${computerScore}.`
+  );
 }
 // § step 4: logging and comparing player and computer score and announcing winner
 
