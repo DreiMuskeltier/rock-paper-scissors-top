@@ -1,84 +1,93 @@
-// const arr = [1, 2, 3, 4, 5];
+// § FIRST and LAST step: wrapping the code into a for loop
+// § step 1: get computer choice and defining global scoring variable
 
-// function getItem(arr) {
-//   const randomIndex = Math.floor(Math.random() * arr.length);
+// player and computer score variables to store score
+let computerScore = 0;
+let playerScore = 0;
 
-//   const item = arr[randomIndex];
+for (let i = 1; i <= 5; i++) {
+  function computer(choices) {
+    // get random index from array
+    const randomIndex = Math.floor(Math.random() * choices.length);
+    // get random item from array
+    const item = choices[randomIndex];
 
-//   return item;
-// }
+    return item;
+  }
 
-// const result = getItem(arr);
-// console.log(result);
+  // defining the array and saving computer choice
+  const choices = ['rock', 'paper', 'scissors'];
+  const computerChoice = computer(choices);
 
-// § step 1: get computer choice
+  // § step 2: get player choice
 
-function computer(choices) {
-  // get random index from array
-  const randomIndex = Math.floor(Math.random() * choices.length);
-  // get random item from array
-  const item = choices[randomIndex];
+  // prompting the user to choose
+  let player = prompt('Please make your choice!');
+  // saving player choice and making it case-insensitive
+  let playerChoice = player.toLowerCase();
 
-  return item;
+  // § step 3: game logic
+
+  // simple if logic to determine winner and incrementing score
+  const round = (computerChoice, playerChoice) => {
+    if (computerChoice === 'rock') {
+      if (playerChoice === 'rock') {
+        return 'Draw!';
+      }
+
+      if (playerChoice === 'paper') {
+        return 'Player has won the round!' && playerScore++;
+      }
+
+      if (playerChoice === 'scissors') {
+        return 'Computer has won the round!' && computerScore++;
+      }
+    }
+
+    if (computerChoice === 'paper') {
+      if (playerChoice === 'rock') {
+        return 'Computer has won the round!' && computerScore++;
+      }
+
+      if (playerChoice === 'paper') {
+        return 'Draw!';
+      }
+
+      if (playerChoice === 'scissors') {
+        return 'Player has won the round!' && playerScore++;
+      }
+    }
+
+    if (computerChoice === 'scissors') {
+      if (playerChoice === 'rock') {
+        return 'Player has won the round!' && playerScore++;
+      }
+
+      if (playerChoice === 'paper') {
+        return 'Computer has won the round!' && computerScore++;
+      }
+
+      if (playerChoice === 'scissors') {
+        return 'Draw!';
+      }
+    }
+  };
+
+  // logging the chosen artifact after scoring to avoid cheating
+  console.log(`The Computer chose ${computerChoice}.`);
+  console.log(`The player chose ${playerChoice}.`);
+
+  // calling on the round function to play a round
+  // ! removed clg for round, it logged a 0 or a 1, don't know why
+  round(computerChoice, playerChoice);
+  console.log(`Player score is ${playerScore}, computer score is ${computerScore}.`);
 }
+// § step 4: logging and comparing player and computer score and announcing winner
 
-const choices = ['rock', 'paper', 'scissors'];
-const computerChoice = computer(choices);
-console.log(computerChoice);
-
-// § step 2: get player choice
-
-let player = prompt('Please make your choice!');
-let playerChoice = player.toLowerCase();
-console.log(playerChoice);
-
-// § step 3: game logic
-
-const round = (computerChoice, playerChoice) => {
-  if (computerChoice === 'rock') {
-    if (playerChoice === 'rock') {
-      return 'Draw!';
-    }
-
-    if (playerChoice === 'paper') {
-      return 'Player won!';
-    }
-
-    if (playerChoice === 'scissors') {
-      return 'Computer won!';
-    }
-  }
-
-  if (computerChoice === 'paper') {
-    if (playerChoice === 'rock') {
-      return 'Computer won!';
-    }
-
-    if (playerChoice === 'paper') {
-      return 'Draw!';
-    }
-
-    if (playerChoice === 'scissors') {
-      return 'Player won!';
-    }
-  }
-
-  if (computerChoice === 'scissors') {
-    if (playerChoice === 'rock') {
-      return 'Player won!';
-    }
-
-    if (playerChoice === 'paper') {
-      return 'Computer won!';
-    }
-
-    if (playerChoice === 'scissors') {
-      return 'Draw!';
-    }
-  }
-};
-
-console.log(round(computerChoice, playerChoice));
-// if logic for incrementing player/computer score
-
-// comparing player and computer score and announcing winner
+if (playerScore > computerScore) {
+  console.log('The player has won the game!');
+} else if (playerScore < computerScore) {
+  console.log('The computer has won the game!');
+} else {
+  console.log("It's a draw!");
+}
