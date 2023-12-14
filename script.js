@@ -1,6 +1,3 @@
-// § FIRST and LAST step: wrapping the code into a for loop
-// § step 1: get computer choice and defining global scoring variable
-
 // player and computer score variables to store score
 let computerScore = 0;
 let playerScore = 0;
@@ -13,14 +10,15 @@ function computer(choices) {
 
 const choices = ["rock", "paper", "scissors"];
 
+// § step: for loop for the game
 for (let i = 1; i <= 5; i++) {
-  //  saving computer choice
+  // step: getting computer choice
   const computerChoice = computer(choices);
 
-  // § step 2: get player choice
+  // step: get player choice
   let playerChoice = prompt("Please make your choice!").toLowerCase();
 
-  // § step 3: game logic
+  // § step: game logic
 
   // simple if logic to determine winner and incrementing score
   const round = (computerChoice, playerChoice) => {
@@ -48,7 +46,6 @@ for (let i = 1; i <= 5; i++) {
   console.log(`The player chose ${playerChoice}.`);
 
   // calling on the round function to play a round
-  // ! removed clg for round, it logged a 0 or a 1, don't know why
   round(computerChoice, playerChoice);
   console.log(
     `Player score is ${playerScore}, computer score is ${computerScore}.`,
