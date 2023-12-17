@@ -8,7 +8,7 @@ function computer(choices) {
   return choices[randomIndex];
 }
 
-const choices = ["rock", "paper", "scissors"];
+const choices = ['rock', 'paper', 'scissors'];
 
 // § step: for loop for the game
 for (let i = 1; i <= 5; i++) {
@@ -16,28 +16,28 @@ for (let i = 1; i <= 5; i++) {
   const computerChoice = computer(choices);
 
   // step: get player choice
-  let playerChoice = prompt("Please make your choice!").toLowerCase();
+  let playerChoice = prompt('Please make your choice!').toLowerCase();
 
   // § step: game logic
 
   // simple if logic to determine winner and incrementing score
   const round = (computerChoice, playerChoice) => {
     if (
-      (computerChoice === "rock" && playerChoice === "paper") ||
-      (computerChoice === "paper" && playerChoice === "scissors") ||
-      (computerChoice === "scissors" && playerChoice === "rock")
+      (computerChoice === 'rock' && playerChoice === 'paper') ||
+      (computerChoice === 'paper' && playerChoice === 'scissors') ||
+      (computerChoice === 'scissors' && playerChoice === 'rock')
     ) {
-      console.log("Player has won the round!");
+      console.log('Player has won the round!');
       playerScore++;
     } else if (
-      (computerChoice === "rock" && playerChoice === "scissors") ||
-      (computerChoice === "paper" && playerChoice === "rock") ||
-      (computerChoice === "scissors" && playerChoice === "paper")
+      (computerChoice === 'rock' && playerChoice === 'scissors') ||
+      (computerChoice === 'paper' && playerChoice === 'rock') ||
+      (computerChoice === 'scissors' && playerChoice === 'paper')
     ) {
-      console.log("The Computer has won the round!");
+      console.log('The Computer has won the round!');
       computerScore++;
     } else {
-      console.log("Draw!");
+      console.log('Draw!');
     }
   };
 
@@ -48,15 +48,15 @@ for (let i = 1; i <= 5; i++) {
   // calling on the round function to play a round
   round(computerChoice, playerChoice);
   console.log(
-    `Player score is ${playerScore}, computer score is ${computerScore}.`,
+    `Player score is ${playerScore}, computer score is ${computerScore}.`
   );
 }
-// § step 4: logging and comparing player and computer score and announcing winner
+// § step: logging and comparing player and computer score and announcing winner
 
 if (playerScore > computerScore) {
-  console.log("The player has won the game!");
+  console.log('The player has won the game!');
 } else if (playerScore < computerScore) {
-  console.log("The computer has won the game!");
+  console.log('The computer has won the game!');
 } else {
   console.log("It's a draw!");
 }
