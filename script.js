@@ -17,6 +17,9 @@ for (let i = 1; i <= 5; i++) {
 
   // step: get player choice
   let playerChoice = prompt('Please make your choice!').toLowerCase();
+  if (playerChoice !== 'rock' || 'paper' || 'scissors') {
+    prompt('Please make a valid choice (rock, paper, scissors)!');
+  }
 
   // § step: game logic
 
